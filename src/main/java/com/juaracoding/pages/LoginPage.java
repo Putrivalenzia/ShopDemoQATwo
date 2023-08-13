@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
     private WebDriver driver;
 
-    public LoginPage(){
+    public LoginPage() {
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
@@ -26,7 +26,7 @@ public class LoginPage {
     WebElement btnLogin;
 
     // Custom Method
-    public void login(){
+    public void login() {
         username.sendKeys("putri");
         password.sendKeys("999Putri!");
         btnLogin.click();
