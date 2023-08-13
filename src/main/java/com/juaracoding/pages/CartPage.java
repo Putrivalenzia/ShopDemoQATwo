@@ -10,21 +10,14 @@ import org.openqa.selenium.support.ui.Select;
 
 public class CartPage {
     private WebDriver driver;
-    public CartPage(){
+
+    public CartPage() {
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
 
 
     // Locator @FindBy
-    @FindBy(id = "username")
-    WebElement username;
-
-    @FindBy(id = "password")
-    WebElement password;
-
-    @FindBy(name = "login")
-    WebElement btnLogin;
 
     @FindBy(className = "custom-logo")
     WebElement productPage;
@@ -51,7 +44,7 @@ public class CartPage {
 
 
     // Custom Method
-    public void addToCart(){
+    public void addToCart() {
 
         productPage.click();
         product.click();
@@ -76,7 +69,6 @@ public class CartPage {
         } else {
             System.out.println("Add to Cart Gagal");
         }
-
 
 
     }
