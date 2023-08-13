@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class Chrome implements DriverStrategy{
+public class Chrome implements DriverStrategy {
     @Override
-    public WebDriver setStrategy(){
+    public WebDriver setStrategy() {
         String path = "D:\\chromedriver-win64\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", path);
         ChromeOptions options = new ChromeOptions();
