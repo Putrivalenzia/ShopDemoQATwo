@@ -1,10 +1,7 @@
 package com.juaracoding.pages;
 
 import com.juaracoding.drivers.DriverSingleton;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -80,7 +77,21 @@ public class CheckoutPage {
         btnPlaceOrder.click();
         delay(2);
 
+        // Validasi apakah error message muncul
+        if (isElementPresent(errorMsg)) {
+            System.out.println("Order Gagal: " + errorMsg.getText());
+        } else {
+            System.out.println("Order Berhasil");
+        }
 
+    }
+
+    public boolean isElementPresent(WebElement element) {
+        try {
+            return element.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
 
