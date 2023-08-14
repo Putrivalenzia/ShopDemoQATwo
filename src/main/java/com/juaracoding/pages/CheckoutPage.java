@@ -49,53 +49,39 @@ public class CheckoutPage {
     WebElement errorMsg;
 
 
-    public void proceedCheckout() {
+    public void proceedCheckout(String firstNameValue, String lastNameValue, String addressValue, String cityValue, String postCodeValue, String phoneValue, String emailValue, String stateValue, String countryValue) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-
         btnCheckout.click();
         firstName.clear();
-        js.executeScript("window.scrollBy(0,500)");
-        delay(5);
-        btnPlaceOrder.click();
-        String errorMessage = errorMsg.getText();
-
-
-        if (errorMessage.equals("Billing First name is a required field.")) {
-            System.out.println("Tes case negatif berhasil");
-        } else {
-            System.out.println("Tes case negatif gagal");
-        }
-
-
-        firstName.clear();
-        firstName.sendKeys("putri");
+        firstName.sendKeys(firstNameValue);
         lastName.clear();
-        lastName.sendKeys("val");
+        lastName.sendKeys(lastNameValue);
 
 
         js.executeScript("window.scrollBy(0,500)");
         Select selectCountry = new Select(this.selectCountry);
-        selectCountry.selectByValue("ID");
+        selectCountry.selectByValue(countryValue);
 
         address.clear();
-        address.sendKeys("Leni Residence");
+        address.sendKeys(addressValue);
         city.clear();
-        city.sendKeys("Jakarta Pusat");
+        city.sendKeys(cityValue);
 
         Select selectState = new Select(state);
-        selectState.selectByVisibleText("DKI Jakarta");
-
+        selectState.selectByVisibleText(stateValue);
+        js.executeScript("window.scrollBy(0,500)");
         postCode.clear();
-        postCode.sendKeys("10260");
+        postCode.sendKeys(postCodeValue);
         phone.clear();
-        phone.sendKeys("082258194035");
+        phone.sendKeys(phoneValue);
         email.clear();
-        email.sendKeys("putrivalenzia14@gmail.com");
+        email.sendKeys(emailValue);
         checkTerms.click();
         btnPlaceOrder.click();
-        System.out.println("Order Success!");
+        delay(2);
 
 
     }
+
 
 }

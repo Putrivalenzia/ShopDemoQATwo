@@ -31,7 +31,17 @@ public class Main {
         cartPage.addToCart();
 
         CheckoutPage checkoutPage = new CheckoutPage();
-        checkoutPage.proceedCheckout();
+
+        // Skenario Tes Positif
+        checkoutPage.proceedCheckout("putri", "val", "Leni Residence", "Jakarta Pusat", "10260", "082258194035", "putrivalenzia14@gmail.com", "DKI Jakarta", "ID");
+        System.out.println("Order Success!");
+
+        CartPage cartPageTwo = new CartPage();
+        cartPageTwo.addToCart();
+
+        // Skenario Tes Negatif
+        checkoutPage.proceedCheckout("", "val", "Leni Residence", "Jakarta Pusat", "10260", "082258194035", "putrivalenzia14@gmail.com", "DKI Jakarta", "ID");
+        System.out.println("First Name required");
 
 
         driver.quit();
